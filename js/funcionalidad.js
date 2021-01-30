@@ -1,18 +1,3 @@
-// OBTENER ID.
-
-// let idNuevaTarea = function getId(pLista) {
-//     for (let tarea of pLista) {
-//         tarea.idTarea = listaTareas.length;
-
-//     } return idTarea++
-
-// }
-
-// getId(listaTareas)
-
-
-
-
 // PINTAR LISTA -- OK
 
 function pintarLista(pLista) {
@@ -61,21 +46,52 @@ function guardarTarea(event) {
 }
 
 
+// FILTRAR POR PRIORIDAD
+
+const selectPrioridad = document.querySelector('#buscar select')
+
+selectPrioridad.addEventListener('change', filtrarPrioridad)
+
+function filtrarPrioridad(event) {
+
+    let prioridad = selectPrioridad.value;
+
+    if (prioridad == 'urgente') {
+
+    }
+
+}
+
+
+
+function filtrar(pPrioridad, pLista) {
+    let listaPorPrioridad = pLista.filter(tarea => tarea.prioridad == pPrioridad);
+    return listaPorPrioridad;
+}
+
+
+
+
 
 
 // BORRAR TAREAS --
 
-
 // const btnEliminar = document.querySelector('#btnEliminar');
-
-
 // btnEliminar.addEventListener('click', borrarTarea);
-
 // function borrarTarea(event) {
+//     let sectionTarea = document.querySelector('#tareas');
+//     sectionTarea.parentNode.removeChild(sectionTarea); 
 
+//     listaTareas.forEach(tarea => {
+//         console.log(tarea);
+//         // let posicion = listaTareas.findIndex(tarea => tarea.idTarea == idTarea)
+//     });
+//     // listaTareas.splice(posicion, 1);
 
-//     pintarLista(listaTareas);
 // }
+
+
+
 
 
 
