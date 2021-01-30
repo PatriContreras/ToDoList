@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+* {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+}
+
+html {
+    width: 600px;
+    height: auto;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+}
+
+body {
+background-color: turquoise;
+}
+
+#tareas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin: 20px;
+}
+
+#tareas .tarea {
+    grid-column: 1 / 2;
+}
+
+#tareas .eliminar {
+    grid-column: 3/3;
+    text-align: center;
+}
+
+
+
+
+
+
+
