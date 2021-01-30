@@ -46,7 +46,7 @@ function guardarTarea(event) {
 }
 
 
-// FILTRAR POR PRIORIDAD
+// FILTRAR POR PRIORIDAD -- OK
 
 const selectPrioridad = document.querySelector('#buscar select')
 
@@ -69,21 +69,25 @@ function filtrarPrioridad(event) {
         pintarLista(listaTareas)
     }
 
-
-
-
-    // let listaFiltrada = function filtrar(pPrioridad, listaTareas) {
-    //     let listaPorPrioridad = listaTareas.filter(tarea => tarea.prioridad == pPrioridad);
-    //     return listaPorPrioridad;
-    // }
-
 }
 
 
+// BUSCAR POR PALABRAS
+
+const buscador = document.querySelector('#buscar input');
+
+buscador.addEventListener('keydown', buscarPorLetra);
+
+function buscarPorLetra(event) {
+
+    let buscarPorLetra = buscador.value;
+
+    let listaPorLetra = listaTareas.filter(tarea => tarea.titulo.includes(buscarPorLetra))
+
+    pintarLista(listaPorLetra);
 
 
-
-
+}
 
 
 
