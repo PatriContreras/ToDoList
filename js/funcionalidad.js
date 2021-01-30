@@ -1,42 +1,56 @@
+// OBTENER ID.
+
+// let idNuevaTarea = function getId(pLista) {
+//     for (let tarea of pLista) {
+//         tarea.idTarea = listaTareas.length;
+
+//     } return idTarea++
+
+// }
+
+// getId(listaTareas)
+
+
+
+
 // PINTAR LISTA -- OK
 
 function pintarLista(pLista) {
 
     let sectionTarea = document.querySelector('#tareas');
-    // console.log(pLista) // OK-- Array de 3 elementos
+
     sectionTarea.innerHTML = '';
 
     pLista.forEach(tarea => {
 
-        sectionTarea.innerHTML += `<div class="tarea">${tarea.titulo}</div>
-        <div class="eliminar">Eliminar</div>`
+        sectionTarea.innerHTML += `<div class="tarea">${tarea.titulo}</div><div class="eliminar"><button id="btnEliminar">Eliminar</button></div>`
     });
 
 }
 
-// pintarLista(listaTareas);
+pintarLista(listaTareas);
 
 
-// AÑADIR TAREAS --
+
+// AÑADIR TAREAS -- OK
 
 
 let input = document.querySelector('#guardar input');
 let select = document.querySelector('#guardar select');
 let button = document.querySelector('#guardar button');
 
-// console.log(button); // CAPTURADOS OK
 
 button.addEventListener('click', guardarTarea);
 
 
 function guardarTarea(event) {
 
-
+    let idNuevaTarea = listaTareas.length;
     let nombreTarea = input.value;
     let prioridadTarea = select.value;
 
     let nuevaTarea = {
-        idTarea: 4,
+        idTarea: ++idNuevaTarea,
         titulo: nombreTarea,
         prioridad: prioridadTarea
     };
@@ -45,6 +59,30 @@ function guardarTarea(event) {
 
     pintarLista(listaTareas);
 }
+
+
+
+
+// BORRAR TAREAS --
+
+
+// const btnEliminar = document.querySelector('#btnEliminar');
+
+
+// btnEliminar.addEventListener('click', borrarTarea);
+
+// function borrarTarea(event) {
+
+
+//     pintarLista(listaTareas);
+// }
+
+
+
+
+
+
+
 
 
 
