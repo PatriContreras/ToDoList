@@ -2,9 +2,11 @@
 
 function pintarLista(pLista) {
 
+    let sectionTarea = document.querySelector('#tareas');
+    // console.log(pLista) // OK-- Array de 3 elementos
+    sectionTarea.innerHTML = '';
+
     pLista.forEach(tarea => {
-        let sectionTarea = document.querySelector('#tareas');
-        // console.log(pLista) // OK-- Array de 3 elementos
 
         sectionTarea.innerHTML += `<div class="tarea">${tarea.titulo}</div>
         <div class="eliminar">Eliminar</div>`
