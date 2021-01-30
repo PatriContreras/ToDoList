@@ -57,17 +57,30 @@ function filtrarPrioridad(event) {
     let prioridad = selectPrioridad.value;
 
     if (prioridad == 'urgente') {
-
+        let listaPorPrioridad = listaTareas.filter(tarea => tarea.prioridad == 'urgente');
+        pintarLista(listaPorPrioridad);
+    } else if (prioridad == 'diaria') {
+        let listaPorPrioridad = listaTareas.filter(tarea => tarea.prioridad == 'diaria');
+        pintarLista(listaPorPrioridad);
+    } else if (prioridad == 'mensual') {
+        let listaPorPrioridad = listaTareas.filter(tarea => tarea.prioridad == 'mensual');
+        pintarLista(listaPorPrioridad);
+    } else {
+        pintarLista(listaTareas)
     }
 
+
+
+
+    // let listaFiltrada = function filtrar(pPrioridad, listaTareas) {
+    //     let listaPorPrioridad = listaTareas.filter(tarea => tarea.prioridad == pPrioridad);
+    //     return listaPorPrioridad;
+    // }
+
 }
 
 
 
-function filtrar(pPrioridad, pLista) {
-    let listaPorPrioridad = pLista.filter(tarea => tarea.prioridad == pPrioridad);
-    return listaPorPrioridad;
-}
 
 
 
