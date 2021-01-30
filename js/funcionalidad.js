@@ -2,7 +2,6 @@
 
 function pintarLista(pLista) {
 
-
     pLista.forEach(tarea => {
         let sectionTarea = document.querySelector('#tareas');
         // console.log(pLista) // OK-- Array de 3 elementos
@@ -13,7 +12,7 @@ function pintarLista(pLista) {
 
 }
 
-pintarLista(listaTareas);
+// pintarLista(listaTareas);
 
 
 // AÑADIR TAREAS --
@@ -30,19 +29,25 @@ button.addEventListener('click', guardarTarea);
 
 function guardarTarea(event) {
 
-    let nuevaTarea = function crearTarea() {
-        let nombreTarea = input.innerText;
-        let prioridadTarea = select.value;
 
-        return `idTarea: 2,
-    titulo: '${nombreTarea}',
-    prioridad: '${prioridadTarea}'`
-    }
+    let nombreTarea = input.value;
+    let prioridadTarea = select.value;
+
+    let nuevaTarea = {
+        idTarea: 4,
+        titulo: nombreTarea,
+        prioridad: prioridadTarea
+    };
 
     listaTareas.push(nuevaTarea);
+
+    pintarLista(listaTareas);
 }
 
-console.log(listaTareas);
+
+
+
+
 
 
 
