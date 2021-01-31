@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 * {
     font-family: 'Josefin Sans', sans-serif;
@@ -14,24 +15,54 @@ html {
 }
 
 body {
-background-color: turquoise;
+    background: linear-gradient(to bottom, rgb(81, 81, 243), white)
+}
+
+main {
+    padding: 15px;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#buscar {
+    margin-top: 30px;
+}
+
+
+#guardar p {
+    color: red;
+    font-size: .75em;
+    text-align: center;
+    /* margin-top: 20px; */
 }
 
 #tareas {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
-    margin: 20px;
+    margin-top: 30px;
 }
 
 #tareas .tarea {
-    grid-column: 1 / 2;
+    grid-column: 1 / 3;
 }
 
 #tareas .eliminar {
-    grid-column: 3/3;
+    grid-column: 3/4;
     text-align: center;
+   background-color: tomato;
 }
+
+#tareas .eliminar button {
+background-color: tomato;
+border: none;
+}
+
+
 
 
 

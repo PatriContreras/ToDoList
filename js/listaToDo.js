@@ -2,7 +2,8 @@ let listaTareas = new Array(
     {
         idTarea: 1,
         titulo: 'Estudiar javascript',
-        prioridad: 'urgente'
+        prioridad: 'urgente',
+        color: 'red'
     },
     {
         idTarea: 2,

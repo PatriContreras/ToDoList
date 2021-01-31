@@ -11,38 +11,44 @@
 
 <body>
 
-    <section id="guardar">
-        <div>
-            <input type="text" placeholder="Introduce una tarea">
+    <main>
+        <h1>To Do's List</h1>
+        <section id="guardar">
+            <div>
+                <input type="text" placeholder="Introduce una tarea" required>
+                <select name="" id="">
+                    <option disabled selected>Selecciona una opción</option>
+                    <option value="urgente">Urgente</option>
+                    <option value="diaria">Diaria</option>
+                    <option value="mensual">Mensual</option>
+                </select>
+                <button type="submit">Guardar</button>
+                <div>
+                    <p>(Todos los campos son obligatorios)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="buscar">
+            <input type="text" placeholder="Busca una tarea">
             <select name="" id="">
-                <option disabled selected>Selecciona una opción</option>
+                <option selected>Selecciona una opción</option>
                 <option value="urgente">Urgente</option>
                 <option value="diaria">Diaria</option>
                 <option value="mensual">Mensual</option>
             </select>
-            <button type="submit">Guardar</button>
-            <div>
-                <p>Todos los campos son obligatorios</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="buscar">
-        <input type="text" placeholder="Busca una tarea">
-        <select name="" id="">
-            <option selected>Selecciona una opción</option>
-            <option value="urgente">Urgente</option>
-            <option value="diaria">Diaria</option>
-            <option value="mensual">Mensual</option>
-        </select>
-    </section>
-
-    <section id="tareas">
-        <!-- <div class="tarea">Tarea</div>
+        <section id="tareas">
+            <!-- <div class="tarea">Tarea</div>
         <div class="eliminar">
             <button id="btnEliminar">Eliminar</button>
         </div> -->
-    </section>
+        </section>
+
+    </main>
+
+
 
 
 

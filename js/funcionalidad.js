@@ -8,8 +8,22 @@ function pintarLista(pLista) {
 
     pLista.forEach(tarea => {
 
-        sectionTarea.innerHTML += `<div class="tarea">${tarea.titulo}</div><div class="eliminar"><button id="btnEliminar">Eliminar</button></div>`
+        switch (tarea.prioridad) {
+            case 'urgente':
+                sectionTarea.innerHTML += `<div class="tarea" style="background-color: #FC7D6E">${tarea.titulo}</div><div class="eliminar"><button id="btnEliminar">Eliminar</button></div>`;
+                break;
+            case 'diaria':
+                sectionTarea.innerHTML += `<div class="tarea" style="background-color: #FBFB90">${tarea.titulo}</div><div class="eliminar"><button id="btnEliminar">Eliminar</button></div>`;
+                break;
+            case 'mensual':
+                sectionTarea.innerHTML += `<div class="tarea" style="background-color: #B8EDFB">${tarea.titulo}</div><div class="eliminar"><button id="btnEliminar">Eliminar</button></div>`;
+                break;
+        }
+        // sectionTarea.innerHTML += `<div class="tarea" style="background-color: red">${tarea.titulo}</div><div class="eliminar"><button id="btnEliminar">Eliminar</button></div>`;
     });
+
+
+
 
 }
 
@@ -72,7 +86,7 @@ function filtrarPrioridad(event) {
 }
 
 
-// BUSCAR POR PALABRAS
+// BUSCAR POR PALABRAS -- OK
 
 const buscador = document.querySelector('#buscar input');
 
@@ -95,15 +109,21 @@ function buscarPorLetra(event) {
 
 // const btnEliminar = document.querySelector('#btnEliminar');
 // btnEliminar.addEventListener('click', borrarTarea);
-// function borrarTarea(event) {
-//     let sectionTarea = document.querySelector('#tareas');
-//     sectionTarea.parentNode.removeChild(sectionTarea); 
 
-//     listaTareas.forEach(tarea => {
-//         console.log(tarea);
-//         // let posicion = listaTareas.findIndex(tarea => tarea.idTarea == idTarea)
-//     });
-//     // listaTareas.splice(posicion, 1);
+
+// function borrarTarea(event) {
+
+//     // Borrar del interfaz
+//     let posicion = listaTareas.findIndex(tarea => {
+//         return tarea.idTarea == idTarea;
+//     })
+//     // Borrar del html
+//     let sectionTarea = document.querySelector('#tareas');
+//     sectionTarea.parentNode.removeChild(sectionTarea);
+
+//     // listaTareas.splice(posicion, 1) // el numero es cuántos elementos borro
+//     console.log(posicion);
+
 
 // }
 
