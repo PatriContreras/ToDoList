@@ -8,18 +8,21 @@ function pintarLista(pLista) {
 
     pLista.forEach(tarea => {
 
+        let color = '';
+
         switch (tarea.prioridad) {
             case 'urgente':
-                sectionTarea.innerHTML += `<div class="tarea" style="background-color: #FC7D6E">${tarea.titulo}</div><div class="eliminar"><button id="btnEliminar">Eliminar</button></div>`;
+                color = '#FC7D6E';
                 break;
             case 'diaria':
-                sectionTarea.innerHTML += `<div class="tarea" style="background-color: #FBFB90">${tarea.titulo}</div><div class="eliminar"><button id="btnEliminar">Eliminar</button></div>`;
+                color = '#FBFB90';
                 break;
             case 'mensual':
-                sectionTarea.innerHTML += `<div class="tarea" style="background-color: #B8EDFB">${tarea.titulo}</div><div class="eliminar"><button id="btnEliminar">Eliminar</button></div>`;
+                color = '#B8EDFB';
                 break;
         }
-        // sectionTarea.innerHTML += `<div class="tarea" style="background-color: red">${tarea.titulo}</div><div class="eliminar"><button id="btnEliminar">Eliminar</button></div>`;
+
+        sectionTarea.innerHTML += `<div class="row" id-tarea='${tarea.idTarea}'><div class="tarea" style="background-color: ${color}">${tarea.titulo}</div><div class="eliminar"><button class="btnEliminar">Eliminar</button></div></div>`;
     });
 
 
@@ -42,6 +45,7 @@ let button = document.querySelector('#guardar button');
 button.addEventListener('click', guardarTarea);
 
 
+
 function guardarTarea(event) {
 
     let idNuevaTarea = listaTareas.length;
@@ -54,7 +58,13 @@ function guardarTarea(event) {
         prioridad: prioridadTarea
     };
 
-    listaTareas.push(nuevaTarea);
+    if (nombreTarea == '' || prioridadTarea == '') {
+        alert('Debes rellenar todos los campos');
+    } else {
+        listaTareas.push(nuevaTarea);
+    }
+
+
 
     pintarLista(listaTareas);
 }
@@ -96,9 +106,13 @@ function buscarPorLetra(event) {
 
     let buscarPorLetra = buscador.value;
 
-    let listaPorLetra = listaTareas.filter(tarea => tarea.titulo.includes(buscarPorLetra))
+    if (buscarPorLetra == '') {
+        pintarLista(listaTareas);
+    } else {
+        let listaPorLetra = listaTareas.filter(tarea => tarea.titulo.includes(buscarPorLetra))
 
-    pintarLista(listaPorLetra);
+        pintarLista(listaPorLetra);
+    }
 
 
 }
@@ -107,25 +121,26 @@ function buscarPorLetra(event) {
 
 // BORRAR TAREAS --
 
-// const btnEliminar = document.querySelector('#btnEliminar');
-// btnEliminar.addEventListener('click', borrarTarea);
+const btnEliminar = document.querySelectorAll('.btnEliminar');
+
+for (boton of btnEliminar) {
+    boton.addEventListener('click', borrarTarea);
+}
 
 
-// function borrarTarea(event) {
 
-//     // Borrar del interfaz
-//     let posicion = listaTareas.findIndex(tarea => {
-//         return tarea.idTarea == idTarea;
-//     })
-//     // Borrar del html
-//     let sectionTarea = document.querySelector('#tareas');
-//     sectionTarea.parentNode.removeChild(sectionTarea);
+function borrarTarea(event) {
+    // let divEliminar = event.target.parentNode;
+    // let divRow = divEliminar.parentNode;
+    // console.log(divRow);
 
-//     // listaTareas.splice(posicion, 1) // el numero es cuántos elementos borro
-//     console.log(posicion);
+    let divRow = event.target.closest('.row'); // Coge el ascendiente más cercano con esa clase, id..(selector)
+    let getIdTarea = divRow.getAttribute('id-tarea');
+    // console.log(getIdTarea);
+    divRow.remove();
 
 
-// }
+}
 
 
 
