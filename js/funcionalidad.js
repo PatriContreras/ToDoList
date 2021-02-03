@@ -23,10 +23,10 @@ function pintarLista(pLista) {
         }
 
         sectionTarea.innerHTML += `<div class="row" id-tarea='${tarea.idTarea}'><div class="tarea" style="background-color: ${color}">${tarea.titulo}</div><div class="eliminar"><button class="btnEliminar">Eliminar</button></div></div>`;
+
     });
 
-
-
+    addEventListenerBtnEliminar();
 
 }
 
@@ -121,10 +121,15 @@ function buscarPorLetra(event) {
 
 // BORRAR TAREAS --
 
-const btnEliminar = document.querySelectorAll('.btnEliminar');
 
-for (boton of btnEliminar) {
-    boton.addEventListener('click', borrarTarea);
+
+
+function addEventListenerBtnEliminar() {
+    const btnEliminar = document.querySelectorAll('.btnEliminar');
+
+    for (boton of btnEliminar) {
+        boton.addEventListener('click', borrarTarea);
+    }
 }
 
 
@@ -138,6 +143,9 @@ function borrarTarea(event) {
     let getIdTarea = divRow.getAttribute('id-tarea');
     // console.log(getIdTarea);
     divRow.remove();
+
+    listaTareas.splice(idTarea, 1);
+
 
 
 }
