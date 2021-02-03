@@ -33,9 +33,7 @@ function pintarLista(pLista) {
 pintarLista(listaTareas);
 
 
-
 // AÑADIR TAREAS -- OK
-
 
 let input = document.querySelector('#guardar input');
 let select = document.querySelector('#guardar select');
@@ -43,8 +41,6 @@ let button = document.querySelector('#guardar button');
 
 
 button.addEventListener('click', guardarTarea);
-
-
 
 function guardarTarea(event) {
 
@@ -63,8 +59,6 @@ function guardarTarea(event) {
     } else {
         listaTareas.push(nuevaTarea);
     }
-
-
 
     pintarLista(listaTareas);
 }
@@ -109,19 +103,15 @@ function buscarPorLetra(event) {
     if (buscarPorLetra == '') {
         pintarLista(listaTareas);
     } else {
-        let listaPorLetra = listaTareas.filter(tarea => tarea.titulo.includes(buscarPorLetra))
+        let listaPorLetra = listaTareas.filter(tarea => tarea.titulo.toLowerCase().includes(buscarPorLetra.toLowerCase()));
 
         pintarLista(listaPorLetra);
     }
-
-
 }
 
 
 
 // BORRAR TAREAS --
-
-
 
 
 function addEventListenerBtnEliminar() {
@@ -151,34 +141,5 @@ function borrarTarea(event) {
     listaTareas.splice(index, 1);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

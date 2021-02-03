@@ -17,6 +17,3 @@ let listaTareas = new Array(
     },
 )
 
-
-
-
