@@ -144,9 +144,11 @@ function borrarTarea(event) {
     // console.log(getIdTarea);
     divRow.remove();
 
-    listaTareas.splice(idTarea, 1);
+    let index = listaTareas.findIndex(tarea => {
+        return tarea.idTarea == getIdTarea;
+    })
 
-
+    listaTareas.splice(index, 1);
 
 }
 
